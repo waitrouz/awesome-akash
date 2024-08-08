@@ -5,7 +5,7 @@ services:
     image: declab/automatic1111:0.1
     env:
       - "COMMANDLINE_ARGS=--listen --port=8080 --no-half"
-      - "LINK_MODEL="
+      - "LINK_MODEL=https://huggingface.co/danbrown/RevAnimated-v1-2-2/resolve/main/rev-animated-v1-2-2.safetensors"
     expose:
       - port: 8080
         to:
@@ -15,16 +15,16 @@ profiles:
     app:
       resources:
         cpu:
-          units: 16.0
+          units: 4
         memory:
-          size: 35Gi
+          size: 16Gi
         gpu:
           units: 1
           attributes:
             vendor:
               nvidia:
         storage:
-          size: 50Gi
+          size: 30Gi
   placement:
     akash:
       pricing:
