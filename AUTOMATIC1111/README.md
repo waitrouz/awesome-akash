@@ -2,8 +2,8 @@
 A web interface for Stable Diffusion, implemented using Gradio library.
 
 ## Quick Start
-- Set `LINK_MODEL` varriable in SDL, for a download another model. Current model is ReV Animated v1.2.2
-- Deploy on Akash Console using this SDL and open URI after deployment
+- Set `LINK_MODEL` varriable in [SDL](https://github.com/waitrouz/awesome-akash/blob/stable-diffusion-webui/AUTOMATIC1111/deploy.yaml), for a download another model. Current model is ReV Animated v1.2.2
+- Deploy on Akash Console using this [SDL](https://github.com/waitrouz/awesome-akash/blob/stable-diffusion-webui/AUTOMATIC1111/deploy.yaml) and open URI after deployment
 - After deployment, you can use the `SHELL` tab [Akash Console](https://console.akash.network) to upload additional models, to the `/stable-diffusion-webui/models/Stable-diffusion` folder with command ```bash model LINK_TO_MODEL```
 
 ## Documentation
