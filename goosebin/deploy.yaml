@@ -1,6 +1,5 @@
 ---
 version: "2.0"
-
 services:
   goosebin:
     image: ghcr.io/ovrclk/goosebin:20210902b
@@ -13,47 +12,43 @@ services:
     image: redis:6.2.5
     expose:
       - port: 6379
-    
-
+        as: 6379
+        to:
+          - global: true
+          - service: goosebin
 profiles:
   compute:
-    web:
+    goosebin:
       resources:
         cpu:
           units: 0.1
         memory:
           size: 128Mi
         storage:
-          size: 128Mi
-    storage:
+          - size: 128mi
+    redis:
       resources:
         cpu:
           units: 0.1
         memory:
           size: 512Mi
         storage:
-          size: 128Mi
+          - size: 128mi
   placement:
-    akash:
-      attributes:
-        organization: akash.network
-      signedBy:
-        anyOf:
-          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+    dcloud:
       pricing:
-        web: 
+        goosebin:
           denom: uakt
-          amount: 10000
-        storage:
+          amount: 100000
+        redis:
           denom: uakt
-          amount: 10000
-
+          amount: 100000
 deployment:
   goosebin:
-    akash:
-      profile: web
+    dcloud:
+      profile: goosebin
       count: 1
   redis:
-    akash:
-      profile: storage
+    dcloud:
+      profile: redis
       count: 1
